@@ -98,11 +98,9 @@ class Check(object):
         server = smtplib.SMTP(self.mailhost, self.port)
         server.starttls()
         server.login(self.mail_user, self.mail_pass)
-        server.set_debuglevel(1)
         server.sendmail(self.from_, [self.to], message)
         server.quit()
 
 
 if __name__ == '__main__':
     Check()()
-
