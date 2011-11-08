@@ -1,0 +1,9 @@
+BeautifulSoup==3.2.0
+distribute==0.6.15
+mechanize==0.2.5
+pytz==2011n
+wsgiref==0.1.2
+zope.event==3.5.1
+zope.interface==3.8.0
+zope.schema==3.8.1
+zope.testbrowser==4.0.2
