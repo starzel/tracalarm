@@ -1,5 +1,6 @@
 from BeautifulSoup import BeautifulSoup
 from ConfigParser import ConfigParser
+from os import path
 from urlparse import urlparse, urlunparse
 import smtplib
 from time import strptime
@@ -12,9 +13,12 @@ class Check(object):
     def __init__(self):
         config = ConfigParser()
         try:
-            config.read('secret.cfg')
-        except:
-            raise Exception("You need a secret.cfg file")
+            config_path = path.join(*path.split(path.abspath(__file__))[:-1] 
+                                    + ('secret.cfg',))
+
+            config.read(config_path)
+        except Exception, e:
+            raise Exception("You need a secret.cfg file:\n" + str(e))
         self.acc_user = config.get('account', 'user')
         self.acc_pass = config.get('account', 'pass')
         self.starturl = config.get('account', 'loginurl')
