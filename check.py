@@ -83,12 +83,12 @@ class Check(object):
             return
         if urgent:
             if waiting:
-                title = "There are %(urgent)s urgent and "
+                title = "[starzelalarm] There are %(urgent)s urgent and " + \
                 "%(waiting)s normal tickets to answer"
             else:
-                title = "There are %(urgent)s urgent tickets to answer"
+                title = "[starzelalarm] There are %(urgent)s urgent tickets to answer"
         else:
-            title = "There are %(waiting)s normal tickets to answer"
+            title = "[starzelalarm] There are %(waiting)s normal tickets to answer"
         title = title % {'urgent': len(urgent), 'waiting': len(waiting)}
         urgent = "\n".join(urgent)
         waiting = "\n".join(waiting)
