@@ -44,7 +44,9 @@ class Check(object):
         self.send_status(waiting, urgent)
 
     def login(self):
-        br = Browser(self.starturl)
+        br = Browser()
+        br.mech_browser.set_handle_robots(False)
+        br.open(self.starturl)
         br.getControl('Username:').value = self.acc_user
         br.getControl('Password:').value = self.acc_pass
         br.getControl('Login').click()
